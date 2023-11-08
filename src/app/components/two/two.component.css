@@ -95,3 +95,25 @@ button {
     display: none;
   }
 }
+::-webkit-scrollbar{
+  width: 7px;
+  height: 0px;
+}
+::-webkit-scrollbar-track{
+  background-color: rgb(90, 181, 237);
+  height: 50% !important;
+  bottom: 0;
+
+}
+::-webkit-scrollbar-thumb{
+  background-color: #5a58ae;
+  transition: 1s !important;
+  margin-right: 30px !important;
+  bottom: 0;
+
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: rgb(136, 43, 207);
+  bottom: 0;
+
+}
