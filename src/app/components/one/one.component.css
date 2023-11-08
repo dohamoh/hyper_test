@@ -1,0 +1,61 @@
+* {
+  margin: 0rem;
+  padding: 0rem;
+  overflow: hidden;
+}
+header {
+  background-color: rgb(114, 136, 243);
+  border: 3px solid black;
+}
+footer {
+  background-color: rgb(175, 138, 226);
+  border: 3px solid black;
+}
+.main {
+  display: flex;
+  height: 93vh;
+}
+#body {
+  /* flex: 6;
+  flex-basis: calc(33.33% - 20px); */
+  overflow-y: scroll;
+  height: 91%;
+  justify-content: center;
+  align-items: start;
+  background-color: rgb(90, 181, 237);
+  border: 3px solid black;
+}
+h4{
+  border: 3px solid black !important;
+}
+p{
+  /* background-color: rgb(231, 155, 226); */
+  cursor: pointer;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  padding: .4rem;
+  border: 2px solid black;
+}
+p:hover{
+   background-color: rgb(124, 124, 177) !important;
+}
+.chooseColor{
+  background-color: var(--color);
+}
+#sideBar {
+  /* flex: 1;
+  flex-basis: calc(10% - 20px); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(136, 173, 236);
+  border: 3px solid black;
+}
+input{
+  border: 3px solid black;
+}
+button{
+  background-color: rgb(136, 173, 236);
+  border: 3px solid black;
+}
+

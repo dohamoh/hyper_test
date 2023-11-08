@@ -1,0 +1,67 @@
+<header [ngClass]="{'chooseColor': chooseColor}"
+  class="fixed-top w-100 p-2 d-flex justify-content-center align-items-center">
+  <h2>Header</h2>
+</header>
+<section class="container-fluid ">
+  <div class="main row">
+    <div id="body" class="col-md-10 col-12 nav-handler py-5 d-flex">
+      <div class="menuItems d-md-inline d-none col-md-2">
+        <p *ngFor="let item of menuItems" [style.background]="item" (click)="changeColor(item)" id="menuitem"
+          class="my-0">menu Items</p>
+      </div>
+      <div id="form" [formGroup]="inputsForm" class="col-md-7 ms-md-5 ms-0 col-9">
+        <h4 class="text-center text-white p-1 bg-primary mb-4">title</h4>
+        <form [formGroup]="inputsForm">
+          <div class="text-center bg-danger-subtle p-1"
+            *ngIf="inputsForm.get('input1')?.errors !== null && inputsForm.get('input1')?.touched && inputsForm.get('input1')">
+            <h5 class=" text-danger fs-6" *ngIf="inputsForm.get('input1')?.errors?.['required'] ">This input is required
+            </h5>
+          </div>
+          <input [(ngModel)]="input1" formControlName="input1" name="input1" class="form-control py-3 mb-4 text-center" type="text"
+            placeholder="TEXT FORM FIELD" required="required">
+
+            <div class="text-center bg-danger-subtle p-1"
+            *ngIf="inputsForm.get('input2')?.errors !== null && inputsForm.get('input2')?.touched && inputsForm.get('input2')">
+            <h5 class=" text-danger fs-6" *ngIf="inputsForm.get('input2')?.errors?.['required'] ">This input is required
+            </h5>
+          </div>
+          <input [(ngModel)]="input2" formControlName="input2" name="input2" class="form-control py-3 mb-4 text-center" type="text"
+            placeholder="TEXT FORM FIELD" required="required">
+
+            <div class="text-center bg-danger-subtle p-1"
+            *ngIf="inputsForm.get('input3')?.errors !== null && inputsForm.get('input3')?.touched && inputsForm.get('input3')">
+            <h5 class=" text-danger fs-6" *ngIf="inputsForm.get('input3')?.errors?.['required'] ">This input is required
+            </h5>
+          </div>
+          <input [(ngModel)]="input3" formControlName="input3" name="input3" class="form-control py-3 mb-4 text-center" type="text"
+            placeholder="TEXT FORM FIELD" required="required">
+
+            <div class="text-center bg-danger-subtle p-1"
+            *ngIf="inputsForm.get('input4')?.errors !== null && inputsForm.get('input4')?.touched && inputsForm.get('input4')">
+            <h5 class=" text-danger fs-6" *ngIf="inputsForm.get('input4')?.errors?.['required'] ">This input is required
+            </h5>
+          </div>
+          <input [(ngModel)]="input4" formControlName="input4" name="input4" class="form-control py-3 text-center" type="text"
+            placeholder="TEXT FORM FIELD" required="required">
+
+          <div class="buttons pb-5 mt-3 d-flex justify-content-between">
+            <button [disabled]="!(input1 || input2 || input3 || input4)" (click)="resetItems()" [ngClass]="{'chooseColor': chooseColor}"
+              class="p-sm-2 px-3 py-2 fs-4 col-md-5 btn btn-primary">Reset <span
+                class="d-sm-inline d-none">Button</span></button>
+
+            <button [disabled]="!inputsForm.valid" [ngClass]="{'chooseColor': chooseColor}" (click)="onSubmit()"
+              class="p-sm-2 px-3 py-2 fs-4 col-md-5 btn btn-primary">Submit <span
+                class="d-sm-inline d-none">Button</span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="sideBar" class="col-md-2 d-md-flex d-none">
+      <h3>Side Bar</h3>
+    </div>
+  </div>
+</section>
+<footer [ngClass]="{'chooseColor': chooseColor}"
+  class="fixed-bottom w-100 p-2 d-flex justify-content-center align-items-center">
+  <h2>Footer</h2>
+</footer>
