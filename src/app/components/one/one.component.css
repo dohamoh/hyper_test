@@ -13,13 +13,13 @@ footer {
 }
 .main {
   display: flex;
-  height: 93vh;
+  height: 94vh;
 }
 #body {
   /* flex: 6;
   flex-basis: calc(33.33% - 20px); */
   overflow-y: scroll;
-  height: 91%;
+  height: 95vh;
   justify-content: center;
   align-items: start;
   background-color: rgb(90, 181, 237);

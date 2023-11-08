@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SharedDataService } from 'src/app/services/shared-data.service';
 
 @Component({
   selector: 'app-two',
@@ -29,18 +30,19 @@ export class TwoComponent {
   input4: string = '';
   chooseColor :any
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private sharedDataService: SharedDataService) { }
 
   ngOnInit(): void {
+    this.chooseColor = this.sharedDataService.dataToShare
   }
   onSubmit() {
     console.log('fff');
     this.router.navigate(['/one'])
   }
   changeColor(item:any){
-    // console.log(item);
     this.chooseColor = item
     document.documentElement.style.setProperty('--color', item.toString());
+    this.sharedDataService.dataToShare = this.chooseColor;
      // style=css , setProperty= ı wıll add somethıng , key= --color , value=EX:item.toString()
   }
   resetItems(){
@@ -49,6 +51,5 @@ export class TwoComponent {
     this.input2 = '';
     this.input3 = '';
     this.input4 = '';
-    console.log('rrr');
   }
 }

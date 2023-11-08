@@ -2,6 +2,7 @@ import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SharedDataService } from 'src/app/services/shared-data.service';
 
 @Component({
   selector: 'app-one',
@@ -10,12 +11,12 @@ import { Router } from '@angular/router';
 })
 export class OneComponent {
   inputsForm: FormGroup = new FormGroup({
-      input1: new FormControl(null, Validators.required),
-      input2: new FormControl(null, Validators.required),
-      input3: new FormControl(null, Validators.required),
-      input4: new FormControl(null, Validators.required)
+    input1: new FormControl(null, Validators.required),
+    input2: new FormControl(null, Validators.required),
+    input3: new FormControl(null, Validators.required),
+    input4: new FormControl(null, Validators.required)
   });
-  menuItems:any[] = [
+  menuItems: any[] = [
     "rgb(214, 153, 243)",
     "rgb(193, 135, 170",
     "rgb(136, 88, 191)",
@@ -28,26 +29,25 @@ export class OneComponent {
   input2: string = '';
   input3: string = '';
   input4: string = '';
-  chooseColor :any
-
-  constructor(private router:Router) {}
-
+  chooseColor: any
+  constructor(private router: Router, private sharedDataService: SharedDataService) { }
   ngOnInit(): void {
     // this.changeColor
+    this.chooseColor = this.sharedDataService.dataToShare
   }
-  onSubmit(){
+  onSubmit() {
     this.router.navigate(['/two'])
   }
-  changeColor(item:any){
+  changeColor(item: any) {
     this.chooseColor = item
+    this.sharedDataService.dataToShare = this.chooseColor;
     document.documentElement.style.setProperty('--color', item.toString());
   }
-  resetItems(){
+  resetItems() {
     this.chooseColor = undefined
     this.input1 = '';
     this.input2 = '';
     this.input3 = '';
     this.input4 = '';
-    console.log('rrr');
   }
 }
